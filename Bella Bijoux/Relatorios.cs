@@ -21,5 +21,10 @@ namespace Bella_Bijoux
         {
             this.Close();
         }
+
+        private void Relatorios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

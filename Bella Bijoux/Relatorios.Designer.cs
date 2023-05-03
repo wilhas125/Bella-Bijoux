@@ -49,6 +49,7 @@
             this.Controls.Add(this.btnSair);
             this.Name = "Relatorios";
             this.Text = "Relatorios";
+            this.Load += new System.EventHandler(this.Relatorios_Load);
             this.ResumeLayout(false);
 
         }

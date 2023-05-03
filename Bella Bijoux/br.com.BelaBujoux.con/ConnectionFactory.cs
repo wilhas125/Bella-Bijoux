@@ -10,12 +10,12 @@ namespace Bella_Bijoux.br.com.BelaBujoux.con
 {
      class ConnectionFactory
     {
-       
-        
-            public MySqlConnection GetConnection()
+
+
+        public MySqlConnection GetConnection()
             {
-                string conexao = ConfigurationManager.
-                                    ConnectionStrings["bd_locadora"].ConnectionString;
+            string conexao = ConfigurationManager.
+                                    ConnectionStrings["bd_BellaBijoux"].ConnectionString;
                 return new MySqlConnection(conexao);
             }
         

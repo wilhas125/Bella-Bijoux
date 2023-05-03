@@ -115,6 +115,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="br.com.BelaBujoux.con\ConnectionFactory.cs" />
+    <Compile Include="br.com.locadora.dao\CategoriaDao.cs" />
+    <Compile Include="br.com.locadora.dao\FilmesDao.cs" />
+    <Compile Include="br.com.locadora.dao\LoginDao.cs" />
+    <Compile Include="br.com.locadora.dao\UsuarioDao.cs" />
+    <Compile Include="br.com.locadora.model\Categoria.cs" />
+    <Compile Include="br.com.locadora.model\Filmes.cs" />
+    <Compile Include="br.com.locadora.model\Usuários.cs" />
+    <Compile Include="br.com.locadora.view\frmAcesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmAcesso.Designer.cs">
+      <DependentUpon>frmAcesso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmcategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmcategoria.Designer.cs">
+      <DependentUpon>frmcategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmconsultacategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmconsultacategorias.Designer.cs">
+      <DependentUpon>frmconsultacategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmconsultafilmes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmconsultafilmes.Designer.cs">
+      <DependentUpon>frmconsultafilmes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmconsultausuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmconsultausuario.Designer.cs">
+      <DependentUpon>frmconsultausuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmfilme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmfilme.Designer.cs">
+      <DependentUpon>frmfilme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmusuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\frmusuario.Designer.cs">
+      <DependentUpon>frmusuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.locadora.view\Menu_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.locadora.view\Menu_Principal.Designer.cs">
+      <DependentUpon>Menu_Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +209,30 @@
     <Compile Include="Relatorios.Designer.cs">
       <DependentUpon>Relatorios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="br.com.locadora.view\frmAcesso.resx">
+      <DependentUpon>frmAcesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.locadora.view\frmcategoria.resx">
+      <DependentUpon>frmcategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.locadora.view\frmconsultacategorias.resx">
+      <DependentUpon>frmconsultacategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.locadora.view\frmconsultafilmes.resx">
+      <DependentUpon>frmconsultafilmes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.locadora.view\frmconsultausuario.resx">
+      <DependentUpon>frmconsultausuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.locadora.view\frmfilme.resx">
+      <DependentUpon>frmfilme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.locadora.view\frmusuario.resx">
+      <DependentUpon>frmusuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.locadora.view\Menu_Principal.resx">
+      <DependentUpon>Menu_Principal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastro.resx">
       <DependentUpon>Cadastro.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +285,14 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Captura de t.jpg" />
+    <Content Include="Resources\Captura de.jpg" />
+    <Content Include="Resources\Captura.jpg" />
+    <Content Include="Resources\Captura1.jpg" />
+    <Content Include="Resources\transferir.jpg" />
+    <Content Include="Resources\transferir1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

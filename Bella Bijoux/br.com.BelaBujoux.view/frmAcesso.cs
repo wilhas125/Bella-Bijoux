@@ -1,5 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using Sistema_locadora.br.com.locadora.dao;
+//using Sistema_locadora.br.com.locadora.dao;
 using Sistema_locadora.br.com.locadora.model;
 using System;
 using System.Collections.Generic;

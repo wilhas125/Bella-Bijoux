@@ -38,7 +38,7 @@
             this.ldQtd = new System.Windows.Forms.Label();
             this.lbDescricao = new System.Windows.Forms.Label();
             this.lbCodigo = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.textBoxValorAtual = new System.Windows.Forms.TextBox();
             this.textBoxCompra = new System.Windows.Forms.TextBox();
             this.textBoxEstoque = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -71,7 +71,7 @@
             this.panel1.Controls.Add(this.ldQtd);
             this.panel1.Controls.Add(this.lbDescricao);
             this.panel1.Controls.Add(this.lbCodigo);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgProdutos);
             this.panel1.Controls.Add(this.textBoxValorAtual);
             this.panel1.Controls.Add(this.textBoxCompra);
             this.panel1.Controls.Add(this.textBoxEstoque);
@@ -84,6 +84,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1037, 483);
             this.panel1.TabIndex = 9;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnPesquisar
             // 
@@ -158,14 +159,14 @@
             this.lbCodigo.TabIndex = 20;
             this.lbCodigo.Text = "CODIGO";
             // 
-            // dataGridView1
+            // dgProdutos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 137);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1011, 332);
-            this.dataGridView1.TabIndex = 18;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProdutos.Location = new System.Drawing.Point(11, 137);
+            this.dgProdutos.Name = "dgProdutos";
+            this.dgProdutos.Size = new System.Drawing.Size(1011, 332);
+            this.dgProdutos.TabIndex = 18;
+            this.dgProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // textBoxValorAtual
             // 
@@ -245,7 +246,7 @@
             this.Text = "Cadastro";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,7 +263,7 @@
         private System.Windows.Forms.Label ldQtd;
         private System.Windows.Forms.Label lbDescricao;
         private System.Windows.Forms.Label lbCodigo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgProdutos;
         private System.Windows.Forms.TextBox textBoxValorAtual;
         private System.Windows.Forms.TextBox textBoxCompra;
         private System.Windows.Forms.TextBox textBoxEstoque;

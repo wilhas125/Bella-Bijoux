@@ -23,6 +23,57 @@ namespace Bella_Bijoux
         {
             this.Close();
         }
+        #region//Pegando os dados da linha selecionada
+        private void dgProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Pegando os dados da linha selecionada
+
+            texBoxCod.Text = dgProdutos.CurrentRow.Cells[0].Value.ToString();
+            textBoxDescri.Text = dgProdutos.CurrentRow.Cells[1].Value.ToString();
+            textBoxQuantidade.Text = dgProdutos.CurrentRow.Cells[2].Value.ToString();
+            textBoxEstoque.Text = dgProdutos.CurrentRow.Cells[3].Value.ToString();
+            textBoxCompra.Text = dgProdutos.CurrentRow.Cells[4].Value.ToString();
+            textBoxValorAtual.Text = dgProdutos.CurrentRow.Cells[4].Value.ToString();
+           
+
+
+            
+
+        }
+        #endregion
+
+        #region//Botão Excluir
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                // 1 Passo - criar o comando sql
+                Produtos obj = new Produtos();
+                obj.id = int.Parse(texBoxCod.Text);
+
+                //2º passo rxecutar o metodo excluirCliente
+                ProdutoDao dao = new ProdutoDao();
+                dao.excluir(obj);
+                dgProdutos.DataSource = dao.listarProdutos();
+
+                txtcodigo.Text = "";
+                txtDescricao.Text = "";
+                txtPesquisa.Text = "";
+                txtPreco.Text = "";
+                txtQtdEstoque.Text = "";
+                cbbFornecedor.Text = "";
+
+
+                txtDescricao.Focus();
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Aconteceu um erro!!" + erro);
+            }
+        }
+        #endregion
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -65,6 +116,11 @@ namespace Bella_Bijoux
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

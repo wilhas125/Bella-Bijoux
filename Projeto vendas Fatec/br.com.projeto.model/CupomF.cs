@@ -12,7 +12,7 @@ namespace Projeto_vendas_Fatec.br.com.projeto.model
         public string CnpjEstabelecimento { get; set; }
         public DateTime DataHoraEmissao { get; set; }
         public string ItensVendidos { get; set; }
-        public double ValorTotal { get; set; }
+        public decimal ValorTotal { get; set; }
         public string FormaPagamento { get; set; }
     }
 }

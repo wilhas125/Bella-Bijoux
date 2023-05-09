@@ -410,7 +410,6 @@ C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto Bell
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Projeto_vendas_Fatec.br.com.projeto.view.CadSub.resources
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Bella_Bijoux.Caixa.resources
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Bella_Bijoux.Carrinho.resources
-C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Projeto_vendas_Fatec.br.com.projeto.view.Cupom.resources
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Sistema_locadora.br.com.locadora.view.frmAcesso.resources
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Projeto_vendas_Fatec.br.com.projeto.view.FrmFornecedores.resources
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Projeto_vendas_Fatec.br.com.projeto.view.frmCadastro_de_Produtos.resources
@@ -453,3 +452,4 @@ C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto Bell
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Bella_Bijoux.frmenu.resources
 C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Projeto vendas Fatec.csproj.CopyComplete
+C:\Users\wilha\OneDrive - Fatec Centro Paula Souza\Desktop\projetos\Projeto BellaBijoux1.0\Projeto vendas Fatec\obj\Debug\Projeto_vendas_Fatec.br.com.projeto.view.frmCupom.resources

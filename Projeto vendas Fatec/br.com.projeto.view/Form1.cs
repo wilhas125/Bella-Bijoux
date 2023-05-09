@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projeto_vendas_Fatec.br.com.projeto.dao;
 using Projeto_vendas_Fatec.br.com.projeto.model;
+using System.Drawing.Printing;
+using MySql.Data.MySqlClient;
 
 namespace Projeto_vendas_Fatec.br.com.projeto.view
 {
-    public partial class Cupom : Form
+    public partial class frmCupom : Form
     {
-        public Cupom()
+        public frmCupom()
         {
             InitializeComponent();
         }
@@ -27,8 +29,8 @@ namespace Projeto_vendas_Fatec.br.com.projeto.view
         string nomeEstabelecimento = txtNomeEstabelecimento.Text;
                 string cnpjEstabelecimento = txtCnpjEstabelecimento.Text;
                 DateTime dataHoraEmissao = DateTime.Now;
-                string itensVendidos = txtItensVendidos.Text;
-                double valorTotal = Convert.ToDouble(txtValorTotal.Text);
+                string itensVendidos = listBoxItensVendidos.Text;
+                //decimal valorTotal = Convert.ToDecimal(txtValorTotal.Text);
                 string formaPagamento = txtFormaPagamento.Text;
 
                 // Criar uma instância da classe Cupom e preencher com os dados do cupom
@@ -37,14 +39,14 @@ namespace Projeto_vendas_Fatec.br.com.projeto.view
                 cupom.CnpjEstabelecimento = cnpjEstabelecimento;
                 cupom.DataHoraEmissao = dataHoraEmissao;
                 cupom.ItensVendidos = itensVendidos;
-                cupom.ValorTotal = valorTotal;
+                //cupom.ValorTotal = valorTotal;
                 cupom.FormaPagamento = formaPagamento;
 
             // Chamar o método para gerar o cupom
             string codigoCupom = GerarCodigoCupom(cupom);
 
-                // Exibir o código do cupom para o usuário
-                txtCodigoCupom.Text = codigoCupom;
+            // Exibir o código do cupom para o usuário
+            textCodCupom.Text = codigoCupom;
             }
 
             private string GerarCodigoCupom(CupomF cupom)
@@ -62,7 +64,55 @@ namespace Projeto_vendas_Fatec.br.com.projeto.view
                 return codigoCupom;
             }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {// Criar um bitmap com o tamanho do formulário
+            Bitmap bitmap = new Bitmap(this.Width, this.Height);
+
+            // Desenhar o conteúdo do formulário no bitmap
+            this.DrawToBitmap(bitmap, new Rectangle(0, 0, this.Width, this.Height));
+
+            // Criar um objeto PrintDocument e definir o manipulador de impressão
+            PrintDocument printDoc = new PrintDocument();
+            printDoc.PrintPage += (s, ev) =>
+            {
+                // Desenhar o bitmap na página de impressão
+                ev.Graphics.DrawImage(bitmap, ev.PageBounds);
+            };
+
+            // Exibir a janela de impressão e imprimir o documento
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
         }
+
+        private void dgCupom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string connectionString = "server=localhost;database=bdfatec;uid=root;password=Ww@53375507;";
+            MySqlConnection conexao = new MySqlConnection(connectionString);
+
+
+            {
+                conexao.Open();
+                string consulta = "SELECT * FROM tb_fornecedores";
+                using (MySqlCommand cmd = new MySqlCommand(consulta, conexao))
+                {
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgCupom.DataSource = dt;
+                    }
+                    conexao.Close();
+                }
+
+            }
+
+
+
+        }
+    }
     }
 
     

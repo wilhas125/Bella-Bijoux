@@ -37,6 +37,7 @@
             this.btnRelatorios = new System.Windows.Forms.Button();
             this.btnCaixa = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.frmMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.frmMenu.AutoSize = true;
             this.frmMenu.BackColor = System.Drawing.Color.LightGreen;
             this.frmMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("frmMenu.BackgroundImage")));
+            this.frmMenu.Controls.Add(this.button2);
             this.frmMenu.Controls.Add(this.button1);
             this.frmMenu.Controls.Add(this.btnCarrinho);
             this.frmMenu.Controls.Add(this.btnSair);
@@ -133,6 +135,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "BELLA BIJOUX";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(345, 109);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(193, 82);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "CUPOM";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +172,7 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnCarrinho;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

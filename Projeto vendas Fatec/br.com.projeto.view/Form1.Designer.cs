@@ -39,7 +39,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtFormaPagamento = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textCodCupom = new System.Windows.Forms.TextBox();
+            this.txtCodCupom = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgCupom = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,14 +51,14 @@
             // 
             this.txtNomeEstabelecimento.Location = new System.Drawing.Point(131, 74);
             this.txtNomeEstabelecimento.Name = "txtNomeEstabelecimento";
-            this.txtNomeEstabelecimento.Size = new System.Drawing.Size(169, 20);
+            this.txtNomeEstabelecimento.Size = new System.Drawing.Size(265, 20);
             this.txtNomeEstabelecimento.TabIndex = 0;
             // 
             // txtCnpjEstabelecimento
             // 
             this.txtCnpjEstabelecimento.Location = new System.Drawing.Point(131, 102);
             this.txtCnpjEstabelecimento.Name = "txtCnpjEstabelecimento";
-            this.txtCnpjEstabelecimento.Size = new System.Drawing.Size(169, 20);
+            this.txtCnpjEstabelecimento.Size = new System.Drawing.Size(265, 20);
             this.txtCnpjEstabelecimento.TabIndex = 1;
             // 
             // label1
@@ -91,7 +91,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 259);
+            this.label4.Location = new System.Drawing.Point(9, 331);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 6;
@@ -99,15 +99,15 @@
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.Location = new System.Drawing.Point(73, 259);
+            this.txtValorTotal.Location = new System.Drawing.Point(73, 331);
             this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(227, 20);
+            this.txtValorTotal.Size = new System.Drawing.Size(702, 20);
             this.txtValorTotal.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 301);
+            this.label5.Location = new System.Drawing.Point(9, 373);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 11;
@@ -116,7 +116,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 340);
+            this.label6.Location = new System.Drawing.Point(9, 412);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 10;
@@ -124,9 +124,9 @@
             // 
             // txtFormaPagamento
             // 
-            this.txtFormaPagamento.Location = new System.Drawing.Point(131, 298);
+            this.txtFormaPagamento.Location = new System.Drawing.Point(131, 370);
             this.txtFormaPagamento.Name = "txtFormaPagamento";
-            this.txtFormaPagamento.Size = new System.Drawing.Size(169, 20);
+            this.txtFormaPagamento.Size = new System.Drawing.Size(644, 20);
             this.txtFormaPagamento.TabIndex = 8;
             // 
             // label7
@@ -139,17 +139,17 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "BELLA BIJOUX";
             // 
-            // textCodCupom
+            // txtCodCupom
             // 
-            this.textCodCupom.Location = new System.Drawing.Point(131, 333);
-            this.textCodCupom.Name = "textCodCupom";
-            this.textCodCupom.Size = new System.Drawing.Size(169, 20);
-            this.textCodCupom.TabIndex = 15;
+            this.txtCodCupom.Location = new System.Drawing.Point(131, 405);
+            this.txtCodCupom.Name = "txtCodCupom";
+            this.txtCodCupom.Size = new System.Drawing.Size(644, 20);
+            this.txtCodCupom.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 428);
+            this.label8.Location = new System.Drawing.Point(9, 500);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 13);
             this.label8.TabIndex = 18;
@@ -160,15 +160,15 @@
             this.dgCupom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCupom.Location = new System.Drawing.Point(12, 153);
             this.dgCupom.Name = "dgCupom";
-            this.dgCupom.Size = new System.Drawing.Size(287, 100);
+            this.dgCupom.Size = new System.Drawing.Size(763, 161);
             this.dgCupom.TabIndex = 19;
             this.dgCupom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCupom_CellContentClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(200, 422);
+            this.button1.Location = new System.Drawing.Point(200, 494);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 24);
+            this.button1.Size = new System.Drawing.Size(478, 24);
             this.button1.TabIndex = 20;
             this.button1.Text = "Imprimir";
             this.button1.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
             // 
             this.listBoxItensVendidos.Location = new System.Drawing.Point(131, 127);
             this.listBoxItensVendidos.Name = "listBoxItensVendidos";
-            this.listBoxItensVendidos.Size = new System.Drawing.Size(164, 20);
+            this.listBoxItensVendidos.Size = new System.Drawing.Size(265, 20);
             this.listBoxItensVendidos.TabIndex = 21;
             // 
             // frmCupom
@@ -186,12 +186,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(334, 450);
+            this.ClientSize = new System.Drawing.Size(806, 523);
             this.Controls.Add(this.listBoxItensVendidos);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgCupom);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textCodCupom);
+            this.Controls.Add(this.txtCodCupom);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -203,9 +202,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCnpjEstabelecimento);
             this.Controls.Add(this.txtNomeEstabelecimento);
+            this.Controls.Add(this.dgCupom);
             this.Name = "frmCupom";
             this.Text = "cupom";
-            this.Load += new System.EventHandler(this.button1_Click);
+            this.Load += new System.EventHandler(this.Cupom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgCupom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,7 +225,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtFormaPagamento;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textCodCupom;
+        private System.Windows.Forms.TextBox txtCodCupom;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgCupom;
         private System.Windows.Forms.Button button1;

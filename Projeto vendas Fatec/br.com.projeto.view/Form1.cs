@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Projeto_vendas_Fatec.br.com.projeto.dao;
 using Projeto_vendas_Fatec.br.com.projeto.model;
 using System.Drawing.Printing;
 using MySql.Data.MySqlClient;
@@ -22,70 +16,125 @@ namespace Projeto_vendas_Fatec.br.com.projeto.view
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void Cupom_Load(object sender, EventArgs e)
         {
-          
-        // Ler os dados inseridos pelo usuário
-        string nomeEstabelecimento = txtNomeEstabelecimento.Text;
-                string cnpjEstabelecimento = txtCnpjEstabelecimento.Text;
-                DateTime dataHoraEmissao = DateTime.Now;
-                string itensVendidos = listBoxItensVendidos.Text;
-                //decimal valorTotal = Convert.ToDecimal(txtValorTotal.Text);
-                string formaPagamento = txtFormaPagamento.Text;
-
-                // Criar uma instância da classe Cupom e preencher com os dados do cupom
-                CupomF cupom = new CupomF();
-                cupom.NomeEstabelecimento = nomeEstabelecimento;
-                cupom.CnpjEstabelecimento = cnpjEstabelecimento;
-                cupom.DataHoraEmissao = dataHoraEmissao;
-                cupom.ItensVendidos = itensVendidos;
-                //cupom.ValorTotal = valorTotal;
-                cupom.FormaPagamento = formaPagamento;
-
-            // Chamar o método para gerar o cupom
-            string codigoCupom = GerarCodigoCupom(cupom);
-
-            // Exibir o código do cupom para o usuário
-            textCodCupom.Text = codigoCupom;
-            }
-
-            private string GerarCodigoCupom(CupomF cupom)
+            string connectionString = "server=localhost;database=bdfatec;uid=root;password=Ww@53375507;";
+            using (MySqlConnection conexao = new MySqlConnection(connectionString))
             {
-                // Criar uma string com as informações do cupom no formato adequado
-                string codigoCupom = "";
-                codigoCupom += "Nome do estabelecimento: " + cupom.NomeEstabelecimento + "\n";
-                codigoCupom += "CNPJ do estabelecimento: " + cupom.CnpjEstabelecimento + "\n";
-                codigoCupom += "Data e hora da emissão: " + cupom.DataHoraEmissao.ToString() + "\n";
-                codigoCupom += "Itens vendidos: " + cupom.ItensVendidos + "\n";
-                codigoCupom += "Valor total: R$" + cupom.ValorTotal.ToString("F2") + "\n";
-                codigoCupom += "Forma de pagamento: " + cupom.FormaPagamento + "\n";
+                conexao.Open();
+                string consulta = "SELECT nome, endereco, cidade, estado, cep, telefone FROM tb_fornecedores";
+                using (MySqlCommand cmd = new MySqlCommand(consulta, conexao))
+                {
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgCupom.DataSource = dt;
 
-                // Retornar o código do cupom
-                return codigoCupom;
+                        // Oculta a coluna do ID
+                        dgCupom.Columns[0].Visible = false;
+
+                        // Define as propriedades para ajustar ao tamanho da tela
+                        // dgCupom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        //  dgCupom.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                        dgCupom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dgCupom.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+                    }
+                }
             }
+
+
+        }
+
+
+
 
         private void button1_Click_1(object sender, EventArgs e)
-        {// Criar um bitmap com o tamanho do formulário
-            Bitmap bitmap = new Bitmap(this.Width, this.Height);
 
-            // Desenhar o conteúdo do formulário no bitmap
-            this.DrawToBitmap(bitmap, new Rectangle(0, 0, this.Width, this.Height));
+        {
+            string connectionString = "server=localhost;database=bd_bellabijoux;uid=root;password=Ww@53375507;";
 
-            // Criar um objeto PrintDocument e definir o manipulador de impressão
-            PrintDocument printDoc = new PrintDocument();
-            printDoc.PrintPage += (s, ev) =>
+            using (MySqlConnection conexao = new MySqlConnection(connectionString))
             {
-                // Desenhar o bitmap na página de impressão
-                ev.Graphics.DrawImage(bitmap, ev.PageBounds);
-            };
+                conexao.Open();
+                string sql = "SELECT nome_loja, endereco_loja, cnpj_loja, data_hora, descricao_produto, quantidade, preco_unitario, subtotal, desconto, total, forma_pagamento FROM tb_cupom_fiscal";
+                MySqlCommand command = new MySqlCommand(sql, conexao);
+                MySqlDataReader reader = command.ExecuteReader();
 
-            // Exibir a janela de impressão e imprimir o documento
-            PrintDialog printDialog = new PrintDialog();
-            if (printDialog.ShowDialog() == DialogResult.OK)
-            {
-                printDoc.Print();
+                // Cria o documento para impressão
+                PrintDocument printDoc = new PrintDocument();
+
+                // Define a orientação da página
+                printDoc.DefaultPageSettings.Landscape = false;
+
+                // Define o tamanho da página
+                printDoc.DefaultPageSettings.PaperSize = new PaperSize("A4", 827, 1169);
+
+                // Adiciona o evento de impressão
+                printDoc.PrintPage += (s, ev) =>
+                {
+                // Define a fonte e as margens
+                Font fonteTitulos = new Font("Arial", 14, FontStyle.Bold);
+                    Font fonteDados = new Font("Arial", 12, FontStyle.Regular);
+                    int margemEsquerda = 50;
+                    int margemSuperior = 100;
+
+                // Define os títulos das colunas
+                string[] titulos = { "Nome da loja", "Endereço da loja", "CNPJ da loja", "Data e hora da venda", "Descrição do produto", "Quantidade", "Preço unitário", "Subtotal", "Desconto", "Total a pagar", "Forma de pagamento" };
+
+                // Imprime os títulos
+                for (int i = 0; i < titulos.Length; i++)
+                    {
+                        ev.Graphics.DrawString(titulos[i], fonteTitulos, Brushes.Black, margemEsquerda + i * 100, margemSuperior);
+                    }
+
+                // Define a altura da linha de dados
+                int alturaLinha = 20;
+
+                // Imprime os dados coletados do banco de dados
+                int linhaAtual = margemSuperior + alturaLinha;
+                    while (reader.Read())
+                    {
+                        string nomeLoja = reader.GetString("nome_loja");
+                        string enderecoLoja = reader.GetString("endereco_loja");
+                        string cnpjLoja = reader.GetString("cnpj_loja");
+                        DateTime dataHoraVenda = reader.GetDateTime("data_hora");
+                        string descricaoProduto = reader.GetString("descricao_produto");
+                        int quantidade = reader.GetInt32("quantidade");
+                        decimal precoUnitario = reader.GetDecimal("preco_unitario");
+                        decimal subtotal = reader.GetDecimal("subtotal");
+                        decimal desconto = reader.GetDecimal("desconto");
+                        decimal total = reader.GetDecimal("total");
+                        string formaPagamento = reader.GetString("forma_pagamento");
+                        ev.Graphics.DrawString(nomeLoja, fonteDados, Brushes.Black, margemEsquerda, linhaAtual);
+                        ev.Graphics.DrawString(enderecoLoja, fonteDados, Brushes.Black, margemEsquerda + 100, linhaAtual);
+                        ev.Graphics.DrawString(cnpjLoja, fonteDados, Brushes.Black, margemEsquerda + 200, linhaAtual);
+                        ev.Graphics.DrawString(dataHoraVenda.ToString("dd/MM/yyyy HH:mm:ss"), fonteDados, Brushes.Black, margemEsquerda + 400, linhaAtual);
+                        ev.Graphics.DrawString(descricaoProduto, fonteDados, Brushes.Black, margemEsquerda + 600, linhaAtual);
+                        ev.Graphics.DrawString(quantidade.ToString(), fonteDados, Brushes.Black, margemEsquerda + 800, linhaAtual);
+                        ev.Graphics.DrawString(precoUnitario.ToString("C"), fonteDados, Brushes.Black, margemEsquerda + 900, linhaAtual);
+                        ev.Graphics.DrawString(subtotal.ToString("C"), fonteDados, Brushes.Black, margemEsquerda + 1000, linhaAtual);
+                        ev.Graphics.DrawString(desconto.ToString("C"), fonteDados, Brushes.Black, margemEsquerda + 1100, linhaAtual);
+                        ev.Graphics.DrawString(total.ToString("C"), fonteDados, Brushes.Black, margemEsquerda + 1200, linhaAtual);
+                        ev.Graphics.DrawString(formaPagamento, fonteDados, Brushes.Black, margemEsquerda + 1300, linhaAtual);
+                        linhaAtual += alturaLinha;
+                    }
+                };
+                reader.Close();
+
+
+                // Abre a janela de diálogo de impressão
+                PrintDialog printDlg = new PrintDialog();
+                printDlg.Document = printDoc;
+                if (printDlg.ShowDialog() == DialogResult.OK)
+                {
+                    printDoc.Print();
+                }
             }
         }
+
 
         private void dgCupom_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -112,9 +161,10 @@ namespace Projeto_vendas_Fatec.br.com.projeto.view
 
 
         }
-    }
-    }
 
-    
+    }
+}
 
- 
+
+
+
